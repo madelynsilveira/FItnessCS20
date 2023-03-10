@@ -3,6 +3,35 @@
         <title>S.M.E.K. Fitness Group - Services</title>
         <meta name=’viewport content=”width=device-width, initial scale=1”>
         <link rel="stylesheet" href="style.css">
+        <style>
+                table[name="classes"] {
+                  border-collapse: collapse;
+                  width: 100%;
+                  text-align: center;
+                }
+                th, td {
+                  padding: 8px;
+                  vertical-align: top;
+                }
+                th {
+                  background-color: black;
+                  color: #ccc;
+                }
+                td {
+                  border: 1px solid #ddd;
+                }
+                td:first-child {
+                        width: 200px;
+                }
+                td:nth-child(2) {
+                        width: 200px;
+                }
+                img {
+                  max-width: 100%;
+                  height: auto;
+                  float: left;
+                }
+              </style>
 </head>
 <body>
         <nav>
@@ -17,5 +46,59 @@
                         <li><a href="services.html"> Services </a></li>
                 </ul>
         </nav>
+
+        <h1> Services </h1>
+        <p> At SMEK Fitness group we offer a variety of services ranging from on-site gym equipment to online tutorials and info.</p>
+
+        <h2 style="text-align: center; background-color: lightsteelblue;"> Sign up for a gym membership </h2>
+
+        <h3> Ammenities </h3>
+
+        <h2 style="text-align: center; background-color: lightsteelblue;"> Sign up for an online class </h2>
+
+        <table name="classes">
+        <thead>
+        <tr>
+                <th>Facility</th>
+                <th>Class</th>
+                <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+                <td><img src="yoga.jpg" alt="Image 1"></td>
+                <td style="font-size: 30px;">YOGA</td>
+                <td>Whether you're looking to relieve stress, improve your physical fitness, or simply deepen your mind-body connection, this yoga class is the perfect way to begin. So grab your mat, wear comfortable clothing, and come join us for a journey of self-discovery and transformation.</td>
+        </tr>
+        <tr>
+                <td><img src="boxing.jpg" alt="Image 3"></td>
+                <td>Boxing</td>
+                <td>Description 3</td>
+        </tr>
+        <tr>
+                <td><img src="cycling.jpg" alt="Image 2"></td>
+                <td>Cycling</td>
+                <td>Description 2</td>
+        </tr>
+        <tr>
+                <td><img src="swimming.jpg" alt="Image 4"></td>
+                <td>Swimming</td>
+                <td>Description 4</td>
+        </tr>
+        </tbody>
+        </table>
+ 
+              
+        <h3> Meet our Instructors </h3>
+        <table name="instructors">
+                <tbody>
+                <tr>
+                        <td><img src="silas.jpg" alt="silas"><p>Silas Reed</p><p>Yoga Instructor</p></td>
+                        <td><img src="maddy.jpg" alt="maddy"><p>Madelyn Silveira</p><p>Boxing Instructor</p></td>
+                        <td><img src="eric.jpg" alt="eric"><p>Eric Zhao</p><p>Cycling Instructor</p></td>
+                        <td><img src="kevin.jpg" alt="kevin"><p>Kevin Prou</p><p>Swimming Instructor</p></td>
+                </tr>
+                </tbody>
+        </table>
 </body>
 </html>
