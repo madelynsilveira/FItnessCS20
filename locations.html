@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Locations</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="locations.css">
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { 
+      top: 0; bottom: 0; 
+      width: 1000px; 
+      height: 700px;
+      border: 2px solid black;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 id="header">Locate your closest instructor and book a consultation in the booking page!</h2>
+  <div id="map"></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZXpoYW8wNSIsImEiOiJjbGYzM3k2OHMwb2ptM3FycWxieXpzMHM3In0.mHHvvWWWyHP91rYmwpTPQg';
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [-74.5, 40], // starting position [lng, lat]
+      zoom: 14 // starting zoom
+    });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        map.flyTo({
+          center: [position.coords.longitude, position.coords.latitude]
+        });
+
+        new mapboxgl.Marker({color: "#000000"})
+          .setLngLat([position.coords.longitude, position.coords.latitude])
+          .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>Your Location</h3>`
+            )
+          )
+          .addTo(map);
+      }, function() {
+        alert('Unable to get your location');
+      });
+    } else {
+      alert('Geolocation is not supported by your browser');
+    }
+    var marker1 = new mapboxgl.Marker()
+      .setLngLat([-71.121943, 42.404342])
+      .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>Instructor Eric's location</h3>`
+            )
+          )
+      .addTo(map);
+
+    var marker2 = new mapboxgl.Marker()
+      .setLngLat([-71.121943, 42.404342])
+      .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>Instructor Kevin's location</h3>`
+            )
+          )
+      .addTo(map);
+
+    var marker3 = new mapboxgl.Marker()
+      .setLngLat([-71.11676, 42.40274])
+      .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>Instructor Silas's location</h3>`
+            )
+          )
+      .addTo(map);
+
+    var marker4 = new mapboxgl.Marker()
+      .setLngLat([-71.118245, 42.400095])
+      .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3>Instructor Maddy's location</h3>`
+            )
+          )
+      .addTo(map);
+    
+  </script>
+</body>
+</html>
