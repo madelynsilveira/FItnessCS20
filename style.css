@@ -4,7 +4,8 @@ nav {
         left: 0;
         width: 100%;
         background-color: #000;
-        color: #777;
+        color: #ccc;
+        padding: 10px;
 }
 
 h1 {
@@ -29,7 +30,7 @@ nav li {
 
 nav a {
         display: block;
-        color: #ccc;
+        color: #777;
         text-align: center;
         padding: 10px 20px;
         text-decoration: none;
@@ -39,3 +40,11 @@ nav a:hover {
         background-color: #333;
         color: #fff;
 }
+
+body {
+        margin-top: 110px; /* doesn't account for web page compression */
+        padding: 10px;
+        font-family: Optima, sans-serif;
+}
+
+/* we also need a footer */
