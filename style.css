@@ -1,4 +1,5 @@
-nav {
+nav
+{
         position: fixed;
         top: 0;
         left: 0;
@@ -8,28 +9,33 @@ nav {
         padding: 10px;
 }
 
-.company {
+.company
+{
         font-size: 40px;
         margin: 0;
 }
 
-.slogan {
+.slogan
+{
         font-size: 30px;
         text-align: center;
         margin: 0;
 }
 
-nav ul {
+nav ul
+{
         list-style-type: none;
         margin: 0;
         text-align: center;
 }
 
-nav li {
+nav li
+{
         float: right;
 }
 
-nav a {
+nav a
+{
         display: block;
         color: #777;
         text-align: center;
@@ -37,15 +43,33 @@ nav a {
         text-decoration: none;
 }
 
-nav a:hover {
+nav a:hover
+{
         background-color: #333;
         color: #fff;
 }
 
-body {
+body
+{
         margin-top: 140px; /* doesn't account for web page compression */
         padding: 10px;
         font-family: Optima, sans-serif;
 }
 
-/* we also need a footer */
+footer
+{
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+}
+
+footer .stripe 
+{
+        background-color: #999;
+}
+
+footer .copyright 
+{
+        font-size: 25px;
+}
