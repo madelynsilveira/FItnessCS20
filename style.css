@@ -51,8 +51,8 @@ nav a:hover
 
 body
 {
-        margin-top: 140px; /* doesn't account for web page compression */
-        padding: 10px;
+        margin-top: 170px; /* doesn't account for web page compression */
+        padding: 0px;
         font-family: Optima, sans-serif;
 }
 
