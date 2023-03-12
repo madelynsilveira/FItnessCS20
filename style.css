@@ -56,6 +56,16 @@ body
         font-family: Optima, sans-serif;
 }
 
+h1,h2,h3
+{
+        margin-left: 40px;
+}
+
+p
+{
+        margin: auto 40px;
+}
+
 footer
 {
         background-color: #000;
