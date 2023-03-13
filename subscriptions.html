@@ -20,6 +20,133 @@
                 </ul>
         </nav>
         
+         <h1> Join Us at SMEK Fitness Group </h1>
+
+        <!-- Styling Gym Membership forms and Online Class forms -->
+
+        <div class="form-container">
+          <img src="smek.png" alt="Gym Image" class="form-image">
+          <h2>Gym Membership Sign Up</h2>
+          <form id="gym-membership" onsubmit="return validateForm(this);" >
+            <label for="first-name">First Name*</label>
+            <input type="text" id="first-name" name="first-name" >
+
+            <label for="last-name">Last Name*</label>
+            <input type="text" id="last-name" name="last-name" >
+    
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" >
+    
+            <label for="phone">Phone*</label>
+            <input type="tel" id="phone" name="phone" >
+    
+            <button type="submit" >Sign Up</button>
+          </form>
+        </div>
+    
+        <div class="form-container">
+          <img src="bike_girl.png" alt="Online Class Image" class="form-image">
+          <h2>Online Class Sign Up</h2>
+          <form id="online-form" onsubmit="return validateForm(this);">
+            <label for="first-name">First Name*</label>
+            <input type="text" id="first-name" name="first-name" required >
+
+            <label for="last-name">Last Name*</label>
+            <input type="text" id="last-name" name="last-name" required >
+    
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" required >
+    
+            <label for="phone">Phone*</label>
+            <input type="tel" id="phone" name="phone" required >
+    
+            <label for="class-type">Class Selection:</label>
+            <select id="class-type" name="class-type"  >
+              <option value="">Select A Class</option>
+              <option value="yoga">Yoga</option>
+              <option value="boxing">Boxing</option>
+              <option value="cycling">Cycling</option>
+              <option value="swimming">Swimming</option>
+            </select>
+    
+            <button type="submit" >Sign Up</button>
+          </form>
+        </div>
+        
+
+        <!-- Validation Forms -->
+
+        <script>
+
+        function validateForm(form) {
+            let first_name = form.elements["first-name"].value.trim();
+            let last_name = form.elements["last-name"].value.trim();
+            let email = form.elements["email"].value.trim();
+            let phone = form.elements["phone"].value.trim();
+            
+            if (first_name === "" || last_name === "" || email === "" || phone === "") {
+              alert("Please fill in all the required fields");
+              return false;
+            }
+
+            if (!validateFirst(first_name)) {
+              alert("Please enter your first name");
+              return false;
+            }
+
+            if (!validateLast(last_name)) {
+              alert("Please enter your last name");
+              return false;
+            }
+
+            
+            if (!validateEmail(email)) {
+              alert("Please enter a valid email address");
+              return false;
+            }
+            
+            if (!validatePhone(phone)) {
+              alert("Please enter a valid phone number");
+              return false;
+            }
+            
+            return true;
+            
+          }
+
+          function validateFirst(first_name) {
+            let first = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+            return first.test(first_name);
+          }
+
+          function validateLast(last_name) {
+            let last = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+            return last.test(last_name);
+          }
+
+          function validateEmail(email) {
+            let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return email_regex.test(email);
+          }
+
+          function validatePhone(phone) {
+            let phone_regex = /^[0-9]{10}$/;
+            return phone_regex.test(phone);
+          }
+
+
+          // button function
+          function validateSubmit(submit_button) {
+            submit_button.preventDefault();
+
+            let signup_button = document.querySelector("#submit");
+
+            signup_button.disabled = true;
+          }
+          
+        </script>
+        
+        
         <footer>
                 <div class="stripe">&nbsp</div>
                 <br>
