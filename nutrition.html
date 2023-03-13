@@ -13,7 +13,7 @@
                 table {
                         text-align: left;
                         width: 100%;
-                        background-color: #e7e7e7;
+                        background-color: #f2f0f0;
                         border-collapse: collapse;
 			margin-bottom: 20px;
                 }
@@ -27,23 +27,34 @@
         </style>
         <script>
                 function calculate() {
-                  // Get user inputs
-                  var weight = parseFloat(document.getElementById("weight").value);
-                  var workoutIntensity = parseFloat(document.getElementById("workout-intensity").value);
-          
-                  // Calculate recommended servings for each food group
-                  var carbs = Math.round(weight * (1 + (workoutIntensity / 10)));
-                  var vegetables = Math.round(weight * (0.5 + (workoutIntensity / 20)));
-                  var fruits = Math.round(weight * (0.5 + (workoutIntensity / 20)));
-                  var fats = Math.round(weight * (0.5 + (workoutIntensity / 20)));
-                  var protein = Math.round(weight * (1 + (workoutIntensity / 10)));
-          
-                  // Display results
-                  document.getElementById("carbs").innerHTML = carbs + " servings";
-                  document.getElementById("vegetables").innerHTML = vegetables + " servings";
-                  document.getElementById("fruits").innerHTML = fruits + " servings";
-                  document.getElementById("fats").innerHTML = fats + " servings";
-                  document.getElementById("protein").innerHTML = protein + " servings";
+        
+                        // set to basic person servings
+                        var carbs = 6;
+                        var protein = 5.5;
+                        var fats = 3;
+                        var fruits = 2;
+                        var vegetables = 2.5;
+                        var calories = 2000;
+
+                        // personalize based on input
+                        var weight = parseFloat(document.getElementById("weight").value);
+                        var intensity = parseFloat(document.getElementById("workout-intensity").value);
+
+                        carbs += (weight / 150 + (1 + (intensity / 15)));
+                        protein += (weight / 150 + (1 + (intensity / 15)));
+                        fats += (weight / 150 + (0.6 + (intensity / 25)));
+                        fruits += (weight / 150 + (0.3 + (intensity / 25)));
+                        vegetables += (weight / 150 + (0.5 + (intensity / 25)));
+                        calories += (weight / 150 + (0.5 + (intensity / 25)));
+
+
+                        // display results
+                        document.getElementById("carbs").innerHTML = carbs.toFixed(1) + " servings";
+                        document.getElementById("protein").innerHTML = protein.toFixed(1) + " servings";
+                        document.getElementById("fats").innerHTML = fats.toFixed(1) + " servings";
+                        document.getElementById("fruits").innerHTML = fruits.toFixed(1) + " servings";
+                        document.getElementById("vegetables").innerHTML = vegetables.toFixed(1) + " servings";
+                        document.getElementById("calories").innerHTML = calories + " calories";
                 }
         </script>
 
@@ -63,11 +74,11 @@
                 </ul>
         </nav>
 
-        <h2> Our Emphasis on Nutrition </h2>
+        <h1> Our Emphasis on Nutrition </h1>
         <p> At SMEK Fitness group, we emphasize to our athletes that their self improvement doesn't end when they walk out the doors. We offer nutritionist consultations, on-site healthy options, and info sources such as this one to give you all the information you need to reach all your fitness goals. </p>
         
         <h3> Eating Healthy </h3>
-        <p> You're probably heard of the five major food groups. </p>
+        <p> Most people have heard of the five major food groups, but they don't neccessarily know how to incorperate them effectively into their own diet. Below is a summary of each: </p>
         <ul style="padding-left: 100px;">
                 <li><strong>Carbohydrates </strong> are broken by your body into glucose and use to provide you body with energy. Eating high fiber, complex carbs will provide you with more longlasting energy throughout your day. Simple carbs like fruit snacks can still be good as a quick pre-workout pick me up, but they won't do you any good after two hours. <br>&emsp;<i>Includes grains, oats, pasta, bread.</i></li>
                 <li><strong>Proteins </strong> are used by your body to repair damaged muscles and, if carb sources are depleted, for basic energy. You really want your body to be able to build upon the muscle it has, so eating enough protein is important to make sure you see success in your workouts. <br>&emsp;<i> Includes meats, seafood, legumes, and dairy.</i></li>
@@ -77,15 +88,15 @@
         </ul>
 
         <h3> Eating Right </h3>
-        <p> With that general knowledge, you also have to know how to apply those guidelines to your own body, lifestyle, and fitness goals.  </p>
-        <p> Fortunately for you, we've provided a serving calculator below. Just input the relevant information and find out how that person can personalize their diet.</p>
+        <p> With that general knowledge, you also have to know how to apply those guidelines to your own body, lifestyle, and fitness goals. Athletes tend to have higher deman for carbohydrates -- to give themselves energy for workouts -- and protein -- to replenish their muscles after they've been depleted. If you don't provide your body with enough energy from the sources it wants, it will start pulling energy from the muscles you want to recover, so staying aware of what you're eating is essential for growth in the weight room. </p>
+        <p> Fortunately for you, we've provided a serving calculator below so you can know exactly how much of each food group your body needs. Just input the relevant information and find out how you can personalize your diet.</p>
         <div class="calculator"> 
                 <p style="font-size: 18px;">Enter your weight and workout intensity to get recommended servings based on your data.</p>
                 <table>
                         <thead>
                           <tr>
                             <th>ATHLETE INFORMATION</th>
-                            <th>RECOMMENDED SERVINGS</th>
+                            <th>RECOMMENDED SERVINGS PER DAY</th>
                           </tr>
                         </thead>
                         <tbody>
