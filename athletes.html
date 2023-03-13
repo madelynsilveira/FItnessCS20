@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <head>
         <title>S.M.E.K. Fitness Group</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name='viewport' content=”width=device-width, initial scale=1>
         <link rel="stylesheet" href="style.css">
 
         <style>
@@ -56,10 +55,19 @@
                 <h2> Sign-up Form </h2>
                 <p class="sign-up"><label>First Name*:</label> <input type="text"  name='fname' /></p>
                 <p class="sign-up"><label>Last Name*:</label>  <input type="text"  name='lname' /></p>
+                <p class="sign-up"><label>Height:</label> <input type="text"  name='ht' /></p>
+                <p class="sign-up"><label>Weight:</label>  <input type="text"  name='wt' /></p>
                 <p class="sign-up"><label>Email*:</label> <input type="text" name='email' /></p>
                 <p class="sign-up"><label>School*:</label> <input type="text" name='school' /></p>
                 <p class="sign-up"><label>Sport*:</label> <input type="text"  name='sport' /></p>
                 <p class="sign-up"><label>Position:</label> <input type="text"  name='position' /></p>
+                <p class="sign-up"> 
+                        <input type="radio"  name="division" value = "D1" checked="checked"/>D1 
+                        <input type="radio"  name='division' value = 'D2'/>D2
+                        <input type="radio"  name='division' value = 'D3'/>D3
+                        <input type="radio"  name='division' value = 'JUCO'/>JUCO
+                        <input type="radio"  name='division' value = 'NAIA'/>NAIA
+                </p>
                 <p class="sign-up">
                         <label>Graduation Year*:</label>
                         <select name="gradYear" size=1>
@@ -69,6 +77,7 @@
                                 <option> 2026 </option>
                         </select>
                 </p>
+                <p>&nbsp</p>
 
                 <p class="sign-up"><input type="button" name="submit1" value="Submit" /></p>
         </form>
@@ -78,9 +87,19 @@
                 <p class="cancel"><label>Membership Number*:</label>  <input type="text"  name='memNo' /></p>
                 <p class="cancel"><label>First Name*:</label> <input type="text"  name='fname' /></p>
                 <p class="cancel"><label>Last Name*:</label>  <input type="text"  name='lname' /></p>
+                <p class="cancel"><label>Height:</label> <input type="text"  name='ht' /></p>
+                <p class="cancel"><label>Weight:</label>  <input type="text"  name='wt' /></p>
                 <p class="cancel"><label>Email*:</label> <input type="text"  name='email' /></p>
                 <p class="cancel"><label>School*:</label> <input type="text" name='school' /></p>
                 <p class="cancel"><label>Sport*:</label> <input type="text"  name='sport' /></p>
+                <p class="cancel"><label>Position:</label> <input type="text"  name='position' /></p>
+                <p class="cancel"> 
+                        <input type="radio"  name="division" value = "D1" checked="checked"/>D1 
+                        <input type="radio"  name='division' value = 'D2'/>D2
+                        <input type="radio"  name='division' value = 'D3'/>D3
+                        <input type="radio"  name='division' value = 'JUCO'/>JUCO
+                        <input type="radio"  name='division' value = 'NAIA'/>NAIA
+                </p>
                 <p class="sign-up">
                         <label>Graduation Year*:</label>
                         <select name="gradYear" size=1>
@@ -114,12 +133,12 @@
                 submits[0].onclick = function() {
                         if (sign_up_elems[0].value != "" &&
                             sign_up_elems[1].value != "" &&
-                            sign_up_elems[2].value != "" &&
-                            sign_up_elems[3].value != "" &&
-                            sign_up_elems[4].value != "") {
+                            sign_up_elems[4].value != "" &&
+                            sign_up_elems[5].value != "" &&
+                            sign_up_elems[6].value != "") {
                                 alert("Thank you, " + sign_up_elems[0].value + 
                                       " " + sign_up_elems[1].value +
-                                      ". A staff member will contact you at " + sign_up_elems[2].value +
+                                      ". A staff member will contact you at " + sign_up_elems[4].value +
                                       " regarding your acceptance into the program.");
                                 location.reload();
                         } else {
@@ -131,12 +150,12 @@
                         if (cancel_elems[0].value != "" &&
                             cancel_elems[1].value != "" &&
                             cancel_elems[2].value != "" &&
-                            cancel_elems[3].value != "" &&
-                            cancel_elems[4].value != "" &&
-                            cancel_elems[5].value != "") {
+                            cancel_elems[5].value != "" &&
+                            cancel_elems[6].value != "" &&
+                            cancel_elems[7].value != "") {
                                 alert("We're sorry to see you go, " + cancel_elems[1].value + 
                                       " " + cancel_elems[2].value +
-                                      ". A staff member will contact you at " + cancel_elems[3].value +
+                                      ". A staff member will contact you at " + cancel_elems[5].value +
                                       " to confirm your cancellation.");
                                 location.reload();
                         } else {
