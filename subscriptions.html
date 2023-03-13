@@ -20,8 +20,8 @@
                         <li><a href="https://kprou.github.io/FItnessCS20/"> Home </a></li>
                 </ul>
         </nav>
-        
-         <h1> Join Us at SMEK Fitness Group </h1>
+
+        <h1> Join Us at SMEK Fitness Group </h1>
 
         <!-- Styling Gym Membership forms and Online Class forms -->
 
@@ -41,7 +41,7 @@
             <label for="phone">Phone*</label>
             <input type="tel" id="phone" name="phone" >
     
-            <button type="submit" >Sign Up</button>
+            <button type="submit" onsubmit="validateSubmit()" s>Sign Up</button>
           </form>
         </div>
     
@@ -70,7 +70,7 @@
               <option value="swimming">Swimming</option>
             </select>
     
-            <button type="submit" >Sign Up</button>
+            <button type="submit" onsubmit="validateSubmit()" >Sign Up</button>
           </form>
         </div>
         
@@ -110,6 +110,8 @@
               alert("Please enter a valid phone number");
               return false;
             }
+
+            alert("Form successfully submitted!");
             
             return true;
             
@@ -134,20 +136,11 @@
             let phone_regex = /^[0-9]{10}$/;
             return phone_regex.test(phone);
           }
-
-
-          // button function
-          function validateSubmit(submit_button) {
-            submit_button.preventDefault();
-
-            let signup_button = document.querySelector("#submit");
-
-            signup_button.disabled = true;
-          }
           
+
         </script>
-        
-        
+
+
         <footer>
                 <div class="stripe">&nbsp</div>
                 <br>
