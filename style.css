@@ -29,6 +29,11 @@ nav
         margin: 0;
 }
 
+.slogan:hover, .company a:hover {
+        color: whitesmoke;
+        transition-duration: 0.4s;
+}
+
 nav ul
 {
         list-style-type: none;
