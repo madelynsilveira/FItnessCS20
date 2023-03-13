@@ -6,23 +6,16 @@
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="locations.css">
   <link rel="stylesheet" href="style.css">
   <style>
     body { margin: 0; padding: 0; }
-    #map { 
-      top: 0; bottom: 0; 
-      width: 1000px; 
-      height: 700px;
-      border: 2px solid black;
-      margin: 20px auto;
-      z-index: 0;
-    }
   </style>
 </head>
 
 <body>
-  <nav style="z-index: 1">
+  <nav style="z-index: 2;">
     <p class="company"><a href="https://kprou.github.io/FItnessCS20/"><STRONG> S.M.E.K. Fitness Group </STRONG></a></p>
     <p class="slogan">Strength, Movement, Exercise, and Kinesiology</p>
       <ul>
@@ -36,7 +29,9 @@
     </ul>
   </nav>
   
-  <h2 id="header">Locate your closest instructor and book a consultation in the booking page!</h2>
+  <h1 id="header">Locate your closest instructor and book a consultation in the Service page!</h1>
+  <h2 id="subheader">Make sure to turn on your location for the map to work. Click on the blue pins on the map to find an instructor.</h2>
+  <button id="myButton">Hide Nav bar and footer</button>
   <div id="map"></div>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiZXpoYW8wNSIsImEiOiJjbGYzM3k2OHMwb2ptM3FycWxieXpzMHM3In0.mHHvvWWWyHP91rYmwpTPQg';
@@ -59,7 +54,7 @@
           .setPopup(
             new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              `<h3>Your Location</h3>`
+              `<h3 class="locationWho">Your Location</h3>`
             )
           )
           .addTo(map);
@@ -69,22 +64,14 @@
     } else {
       alert('Geolocation is not supported by your browser');
     }
-    var marker1 = new mapboxgl.Marker()
-      .setLngLat([-71.121943, 42.404342])
-      .setPopup(
-            new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              `<h3>Instructor Eric's location</h3>`
-            )
-          )
-      .addTo(map);
 
     var marker2 = new mapboxgl.Marker()
       .setLngLat([-71.121943, 42.404342])
       .setPopup(
             new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              `<h3>Instructor Kevin's location</h3>`
+              `<h3 class="locationWho">Instructor Kevin's location</h3>
+              <h5 class="locationWhere">Haskell Hall 310</h5>`
             )
           )
       .addTo(map);
@@ -94,20 +81,42 @@
       .setPopup(
             new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              `<h3>Instructor Silas's location</h3>`
+              `<h3 class="locationWho">Instructor Silas's location</h3>
+              <h5 class="locationWhere">165 College Ave, Somerville</h5>`
             )
           )
       .addTo(map);
 
     var marker4 = new mapboxgl.Marker()
-      .setLngLat([-71.118245, 42.400095])
+      .setLngLat([-71.115464, 42.409031])
       .setPopup(
             new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              `<h3>Instructor Maddy's location</h3>`
+              `<h3 class="locationWho">Instructor Maddy's location</h3>
+              <h5 class="locationWhere">Steve Tisch Sports and Fitness Center</h5>`
             )
           )
       .addTo(map);
+
+    var marker5 = new mapboxgl.Marker()
+      .setLngLat([-71.1165466, 42.4079933])
+      .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h3 class="locationWho">Instructor Eric's location</h3>
+              <h5 class="locationWhere">Joyce Cummings Center</h5>`
+            )
+          )
+      .addTo(map);
+      
+    $(document).ready(function() {
+      $("#myButton").click(function() {
+        $("p").animate( {
+          left: "+=50",
+          height: "toggle"
+        }, 2000);
+      });
+    });
     
   </script>
   
