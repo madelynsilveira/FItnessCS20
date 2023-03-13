@@ -58,8 +58,7 @@ nav li a:hover
 
 body
 {
-        margin-top: 170px; /* doesn't account for web page compression */
-        padding: 0px;
+        margin: 170px 0px 0px 0px;
         font-family: Optima, sans-serif;
 }
 
