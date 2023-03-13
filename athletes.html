@@ -3,6 +3,21 @@
         <title>S.M.E.K. Fitness Group</title>
         <meta name='viewport' content=”width=device-width, initial scale=1>
         <link rel="stylesheet" href="style.css">
+
+        <style>
+                form
+                {
+                        display: inline-block;
+                        width: 48%;
+                }
+
+                label
+                {
+                        display: inline-block;
+                        width: 10%;
+                        min-width: 160px;
+                }
+        </style>
 </head>
 <body>
         <nav>
@@ -27,13 +42,55 @@
                 excellence in their sport. We also know that often athletes are only 
                 in the area during certain parts of the year. It is because of these 
                 factors and many others that we've created the SMEK College Athletes 
-                Program. The program requires applicants to list their name, sport(s), 
-                college or university, and their year of graduation. Once accepted, 
-                athletes will have a full membership, complete with access to all of 
-                our facilities and classes, for just 70% of the cost. Additionally, 
-                we have waived our cancellation fee in order to make cancellation 
-                upon returning to school as easy as possible.
+                Program. The program requires applicants to list their name, email, 
+                sport(s), college or university, and their year of graduation. Once 
+                accepted, athletes will have a full membership, complete with access 
+                to all of our facilities and classes, for just 70% of the cost. 
+                Additionally, we have waived our cancellation fee in order to make 
+                cancellation upon returning to school as easy as possible.
         </p>
+
+        <form>
+                <h2> Sign-up Form </h2>
+                <p class="sign-up"><label>First Name*:</label> <input type="text"  name='fname' /></p>
+                <p class="sign-up"><label>Last Name*:</label>  <input type="text"  name='lname' /></p>
+                <p class="sign-up"><label>Email*:</label> <input type="text" name='email' /></p>
+                <p class="sign-up"><label>School*:</label> <input type="text" name='school' /></p>
+                <p class="sign-up"><label>Sport*:</label> <input type="text"  name='sport' /></p>
+                <p class="sign-up"><label>Position:</label> <input type="text"  name='position' /></p>
+                <p class="sign-up">
+                        <label>Graduation Year*:</label>
+                        <select name="gradYear" size=1>
+                                <option> 2023 </option>
+                                <option> 2024 </option>
+                                <option> 2025 </option>
+                                <option> 2026 </option>
+                        </select>
+                </p>
+
+                <p class="sign-up"><input type="button" name="submit1" value="Submit" /></p>
+        </form>
+
+        <form>
+                <h2> Cancellation Form </h2>
+                <p class="cancel"><label>Membership Number*:</label>  <input type="text"  name='memNo' /></p>
+                <p class="cancel"><label>First Name*:</label> <input type="text"  name='fname' /></p>
+                <p class="cancel"><label>Last Name*:</label>  <input type="text"  name='lname' /></p>
+                <p class="cancel"><label>Email*:</label> <input type="text"  name='email' /></p>
+                <p class="cancel"><label>School*:</label> <input type="text" name='school' /></p>
+                <p class="cancel"><label>Sport*:</label> <input type="text"  name='sport' /></p>
+                <p class="sign-up">
+                        <label>Graduation Year*:</label>
+                        <select name="gradYear" size=1>
+                                <option> 2023 </option>
+                                <option> 2024 </option>
+                                <option> 2025 </option>
+                                <option> 2026 </option>
+                        </select>
+                </p>
+                
+                <p class="cancel"><input type="button" name="submit1" value="Submit" /></p>
+        </form>
         
         <footer>
                 <div class="stripe">&nbsp</div>
@@ -46,5 +103,44 @@
                 <p>Founded by Silas Reed, Madelyn Silveira, Eric Zhao, and Kevin Prou</p>
                 <br>
         </footer>
+
+        <script>
+                var submits = document.querySelectorAll('input[type="button"]');
+                var sign_up_elems = document.querySelectorAll('.sign-up input[type=text]');
+                var cancel_elems = document.querySelectorAll('.cancel input[type=text]');
+                
+                submits[0].onclick = function() {
+                        if (sign_up_elems[0].value != "" &&
+                            sign_up_elems[1].value != "" &&
+                            sign_up_elems[2].value != "" &&
+                            sign_up_elems[3].value != "" &&
+                            sign_up_elems[4].value != "") {
+                                alert("Thank you, " + sign_up_elems[0].value + 
+                                      " " + sign_up_elems[1].value +
+                                      ". A staff member will contact you at " + sign_up_elems[2].value +
+                                      " regarding your acceptance into the program.");
+                                location.reload();
+                        } else {
+                                alert("Please fill out all required fields (first and last name, email, school, sport, grad year).");
+                        }
+                }
+
+                submits[1].onclick = function() {
+                        if (cancel_elems[0].value != "" &&
+                            cancel_elems[1].value != "" &&
+                            cancel_elems[2].value != "" &&
+                            cancel_elems[3].value != "" &&
+                            cancel_elems[4].value != "" &&
+                            cancel_elems[5].value != "") {
+                                alert("We're sorry to see you go, " + cancel_elems[1].value + 
+                                      " " + cancel_elems[2].value +
+                                      ". A staff member will contact you at " + cancel_elems[3].value +
+                                      " to confirm your cancellation.");
+                                location.reload();
+                        } else {
+                                alert("Please fill out all required fields (membership number, first and last name, email, school, sport, grad year).");
+                        }
+                }
+        </script>
 </body>
 </html>
