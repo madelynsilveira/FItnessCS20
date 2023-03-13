@@ -13,6 +13,13 @@ nav
 {
         font-size: 40px;
         margin: 0;
+        text-align: left;
+}
+
+.company a 
+{
+        text-decoration: none;
+        color: #555
 }
 
 .slogan
@@ -34,7 +41,7 @@ nav li
         float: right;
 }
 
-nav a
+nav li a
 {
         display: block;
         color: #777;
@@ -43,7 +50,7 @@ nav a
         text-decoration: none;
 }
 
-nav a:hover
+nav li a:hover
 {
         background-color: #333;
         color: #fff;
