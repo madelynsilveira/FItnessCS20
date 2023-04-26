@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<title>My API</title>
+    <meta charset="utf-8"/>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+		#gallery {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 20px;
+		}
+		.recipe {
+			background-color: #fff;
+			border: 1px solid #ccc;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+			margin: 10px;
+			width: 300px;
+		}
+		.recipe img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+		}
+		.recipe h2 {
+			font-size: 24px;
+			margin: 10px;
+			text-align: center;
+		}
+		.recipe p {
+			font-size: 16px;
+			margin: 10px;
+			text-align: justify;
+		}
+		.recipe a {
+			background-color: #ccc;
+			border: none;
+			color: #fff;
+			display: block;
+			font-size: 16px;
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s;
+		}
+		.recipe a:hover {
+			background-color: #b1b1b1;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		function generate() {
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET", "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes");
+			xhr.setRequestHeader("X-RapidAPI-Key", "50faab4c5bmshfaaa94621a435d3p116e0bjsnf528cac13f9f");
+			xhr.setRequestHeader("X-RapidAPI-Host", "tasty.p.rapidapi.com");
+
+			// set up event handler/callback
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					const data = JSON.parse(xhr.responseText);
+					const results = data.results;
+					let galleryHtml = '';
+					for (let i = 0; i < results.length; i++) {
+						const recipe = results[i];
+						galleryHtml += `
+							<div class="recipe">
+								<img src="${recipe.thumbnail_url}" alt="${recipe.name}">
+								<h2>${recipe.name}</h2>
+								<p>${recipe.description}</p>
+								<a href="${recipe.source_url}" target="_blank">View Recipe</a>
+							</div>
+						`;
+					}
+					document.getElementById("gallery").innerHTML = galleryHtml;
+				}
+				else if (xhr.readyState == 4 && xhr.status != 200) {
+					document.getElementById("gallery").innerHTML = "<p>Request succeeded, but your status code is wrong.</p>";
+				}
+				else if (xhr.readyState == 3) {
+					document.getElementById("gallery").innerHTML = "<p>Document is not ready yet.</p>";
+				}
+			}
+
+			xhr.send();
+		}
+	</script>
+</head>
+
+
+<body onload="generate()">
+
+	<h1>&nbsp;Available Recpies</h1>
+	<div id="task"></div>
+	<div id="gallery"></div>
+
+</body>
+</html>
