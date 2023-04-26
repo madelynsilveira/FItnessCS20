@@ -62,7 +62,7 @@
 	<script>
 		function generate() {
 			const xhr = new XMLHttpRequest();
-			xhr.open("GET", "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes");
+			xhr.open("GET", "https://tasty.p.rapidapi.com/recipes/list?from=0&size=200"/*&tags=under_30_minutes"*/);
 			xhr.setRequestHeader("X-RapidAPI-Key", "50faab4c5bmshfaaa94621a435d3p116e0bjsnf528cac13f9f");
 			xhr.setRequestHeader("X-RapidAPI-Host", "tasty.p.rapidapi.com");
 
